@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Krishoker Haat</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Crop Recommendation System</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="experience" placeholder="Date of Cultivation" required="required" />
+        <input type="text" name="test_score" placeholder="Month(in number)" required="required" />
+		<input type="text" name="interview_score" placeholder="Location" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-large">Predict</button>
+        <button onclick="window.location.href = 'http://localhost/kh/';" class="btn btn-success btn-large">Home</button>
+    </form>
+   <br>
+   <br>
+ </div>
+
+ <div class="output" style="Display:block;">
+   <b>Starts From:</b> {{Day}}
+   <br>
+   <b>Location:</b> {{Loc}}
+   <br>
+   <b>Available crops:</b> {{Avail}}
+   <br>
+   <b>Highly Recommended:</b> {{High}}
+   <br>
+   <b>Recommended:</b> {{Rec}}
+   <br>
+   <b>Not Recommended:</b> {{Low}}
+   <br>
+ </div>
+
+
+</body>
+</html>
